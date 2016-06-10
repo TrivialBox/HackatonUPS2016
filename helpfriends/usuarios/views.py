@@ -8,5 +8,11 @@ from .models import PCE
 
 def accion(request, id, accion):
     if request.method == 'POST':
-        pass  # Notificar
-    return redirect('/')
+        ip = getip(request)
+        return HttpResponse("<h1>" + ip + "</h1>")
+    # return redirect('/')
+
+
+def getip(request):
+    ip = request.META['HTTP_X_FORWARDED_FOR']
+    return str(ip)
