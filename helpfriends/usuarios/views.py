@@ -15,6 +15,6 @@ def accion(request, id, accion):
 def getip(request):
     ip = get_real_ip(request)
     if ip is not None:
-        return 0
-    return ip
+        return ip
+    return 0
 
