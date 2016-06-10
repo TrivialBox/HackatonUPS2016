@@ -1,18 +1,20 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-import json
-
 from .models import PCE
+from ipware.ip import get_real_ip
 
 
 def accion(request, id, accion):
-    if request.method == 'POST':
-        ip = getip(request)
-        return HttpResponse("<h1>" + ip + "</h1>")
+    # if request.method == 'POST':
+    ip = getip(request)
+    return HttpResponse("<h1>" + str(ip) + "</h1>")
     # return redirect('/')
 
 
 def getip(request):
-    ip = request.META['HTTP_X_FORWARDED_FOR']
-    return str(ip)
+    ip = get_real_ip(request)
+    if ip is not None:
+        return 0
+    return ip
+
