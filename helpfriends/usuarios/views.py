@@ -47,7 +47,7 @@ def getip(request):
     ip = get_real_ip(request)
     if ip is not None:
         return ip
-    return '200.110.89.74'  # TODO
+    return '127.0.0.1'
 
 
 def get_raw_latlng(ip):
@@ -74,6 +74,7 @@ def noticar(msj):
     devices = GCMDevice.objects.all()
     for device in devices:
         try:
+            print(device)
             device.send_message(str(msj))
         except:
             continue
