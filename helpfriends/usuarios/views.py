@@ -17,7 +17,8 @@ def accion(request, id, accion):
     datos = dict()
     direccion = get_direccion(ip)
     datos = add_streets(direccion, datos)
-    datos = add_latlng(*getlatlng(ip), datos)
+    latlng = getlatlng(ip)
+    datos = add_latlng(latlng[0], latlng[1], datos)
     try:
         p = PCE.objects.get(id=id)
         datos['nombre'] = p.nombre
