@@ -37,7 +37,7 @@ def get_direccion(ip):
 
 
 def getlatlng(ip):
-    soup = BeautifulSoup(get_raw_latlng(ip), "html.parser")
+    soup = BeautifulSoup(get_raw_latlng(ip))
     latitud = soup.find('td', {'id': 'latitud'}).text
     longitud = soup.find('td', {'id': 'longitud'}).text
     return latitud, longitud
