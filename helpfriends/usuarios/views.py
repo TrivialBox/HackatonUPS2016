@@ -5,7 +5,6 @@ from .models import PCE
 from .models import Discapacidad
 
 from ipware.ip import get_real_ip
-import geocoder
 import googlemaps
 
 import requests
