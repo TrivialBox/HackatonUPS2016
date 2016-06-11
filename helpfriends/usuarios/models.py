@@ -1,4 +1,5 @@
 from django.db import models
+from push_notifications.models import GCMDevice
 
 
 class Persona(models.Model):
@@ -14,7 +15,7 @@ class Persona(models.Model):
 
 
 class Voluntario(Persona):
-    pass
+    dispositivo = models.ForeignKey(GCMDevice)
 
 
 class Ciudadano(Voluntario):

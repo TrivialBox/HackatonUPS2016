@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'push_notifications',
+    'rest_framework',
+    'registro',
+    'login',
     'home',
     'usuarios',
     'django.contrib.admin',
@@ -40,6 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+
+# Push notifications
+PUSH_NOTIFICATIONS_SETTINGS = {
+    "GCM_API_KEY": "AIzaSyBCbMUYaa4h9gNoWAjq-6OKz7i9R3gf8JU",
+    "APNS_CERTIFICATE": "/path/to/your/certificate.pem",
+}
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
